@@ -1,27 +1,21 @@
-// src/App.js
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import Search from './components/Search';
-import History from './components/History';
-import Navbar from './components/Navbar';
-import WordDetails from './components/WordDetails';
-import Loader from './components/Loader';
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import History from "./pages/History";
+import Dictionary from "./pages/Dictionary";
+import Navbar from "./pages/Navbar";
 
-const App = () => {
+function App() {
   return (
     <div className="App">
-      <Navbar />
-      <main>
-        
+      <BrowserRouter>
+        <Navbar />
         <Routes>
-          <Route exact path="/" element={<Search />}></Route>
-          <Route path="/history" element={<History />}></Route>
-          <Route path="/word/:word" element={<WordDetails />}></Route>
+          <Route path="/" element={<Dictionary />} />
+          <Route path="/history" element={<History />} />
         </Routes>
-      </main>
-      <Loader />
+      </BrowserRouter>
     </div>
   );
-};
+}
 
 export default App;
